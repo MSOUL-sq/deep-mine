@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Deep Mine</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+    { "imports": { "three": "/vendor/three/build/three.module.js" } }
+  </script>
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="crosshair"></div>
+    <div id="info"></div>
+    <div id="target" class="hidden">
+      <div id="target-name"></div>
+      <div class="bar"><div id="target-bar"></div></div>
+    </div>
+    <div id="money" class="money"><span class="coin"></span><span class="money-count">0</span></div>
+    <div id="prompt" class="hidden">[E] Мастерская</div>
+    <div id="toast"></div>
+    <div id="build-menu" class="hidden"></div>
+    <div id="resources"></div>
+  </div>
+
+  <div id="shop" class="panel hidden">
+    <div class="shop-head">
+      <h2>Мастерская</h2>
+      <div id="shop-money" class="money"></div>
+      <button id="shop-close" class="icon-btn" title="Закрыть (E / Esc)">✕</button>
+    </div>
+    <h3>Кирки</h3>
+    <div id="shop-picks" class="picks"></div>
+    <h3>Продажа ресурсов</h3>
+    <div id="shop-sell"></div>
+    <div id="shop-msg"></div>
+  </div>
+
+  <div id="menu" class="panel">
+    <h1>DEEP <span>MINE</span></h1>
+    <p class="subtitle">Исследуй пещеры. Добывай. Строй.</p>
+
+    <label for="nickname">Никнейм</label>
+    <input id="nickname" type="text" maxlength="16" placeholder="Введи ник" autocomplete="off">
+
+    <label for="graphics">Графика</label>
+    <select id="graphics">
+      <option value="low">Низкая</option>
+      <option value="medium" selected>Средняя</option>
+      <option value="high">Высокая</option>
+    </select>
+
+    <div id="menu-error" class="hidden"></div>
+    <button id="play" class="btn">Играть</button>
+
+    <div class="help">
+      <b>WASD</b> — движение &nbsp; <b>Мышь</b> — камера &nbsp; <b>ЛКМ</b> — копать &nbsp; <b>E</b> — мастерская &nbsp; <b>B</b> — строить (<b>ПКМ</b> — поставить, <b>1-3</b> — выбор) &nbsp; <b>Space</b> — прыжок &nbsp; <b>Esc</b> — меню
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
